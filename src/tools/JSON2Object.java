@@ -12,15 +12,16 @@ import gvjava.org.json.JSONException;
 import object.LBS;
 
 public class JSON2Object<T> {
-	public ArrayList<T> handle(String content, Class<T> jsonobject) {//
+	public ArrayList<T> handle(String content, Class<T> object) {//
 		ArrayList<T> lbss = new ArrayList<T>();//新建LBS对象数组
 		ObjectMapper objectMapper = new ObjectMapper();//新建对象映射对象
+		Class<T> hehe;
 		//传入的是jsonarray，转换为对象的array
 		if(content!=""){
 			try {				
 				JSONArray jlbsarray  = new JSONArray(content);//json转为jsonarray对象
-				for(int i = 0;i<jlbsarray.length();i++){//将jsonarray转换成LBS array 
-					T lbsobject = objectMapper.readValue(jlbsarray.get(i).toString(), jsonobject);
+				for(int i = 0;i<jlbsarray.length();i++){//将jsonarray转换成LBS array  
+					T lbsobject = objectMapper.readValue(jlbsarray.get(i).toString(), object);
 					lbss.add(lbsobject);
 				}
 			} catch (JSONException e) {
