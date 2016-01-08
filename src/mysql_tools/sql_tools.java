@@ -9,9 +9,7 @@ import object.Record;
 
 public class sql_tools {
 	
-	private static final String url = "jdbc:mysql://121.42.14.241:3306/kepler";
-    private static final String user = "mypc";  
-    private static final String password = "8883027";  
+ 
 	public static void recordsql(Class<?> object, String table_name){
 		//数据库操作-mysql
 		Field[] fields = object.getDeclaredFields();
